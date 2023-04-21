@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Common/Scenes/Preview/Preview.unity
+- path: Assets/Common/Scenes/EMS.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

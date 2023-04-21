@@ -1,8 +1,11 @@
-public enum EnumMode
+namespace Common.Resources.NR_900EMS.Scripts.Display
 {
-    MAIN,
-    LISTENING,
-    MODE_20K,
-    SLEEP,
-    POWEROFF
+    public enum EnumMode
+    {
+        MAIN,
+        LISTENING,
+        MODE_20K,
+        SLEEP,
+        POWEROFF
+    }
 }

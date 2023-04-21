@@ -14,7 +14,7 @@ namespace Common.Resources.Orion_2._4.Scripts.Display
         [SerializeField] private TMP_Text text;
         [SerializeField] private Color _unselectedColor = new Color(255, 178, 37);
         [SerializeField] private Image _image;
-        
+        [SerializeField] 
 
         public void Select()
         {

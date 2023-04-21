@@ -1,3 +1,4 @@
+using Common.Resources.NR_900EMS.Scripts.OutPutPower;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -13,7 +14,7 @@ namespace Common.Resources.NR_900EMS.Scripts.Display
         private EnumMode LastDisplayMode;
     
         [SerializeField] private GameObject[] _headphones;
-        public Attenuator Attenuator;
+        public Attenuator.Attenuator Attenuator;
         [SerializeField] private OutputPower _power;
     
         [Header("Modes")] 

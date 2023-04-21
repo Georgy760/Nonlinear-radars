@@ -3377,46 +3377,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 963194227}
-    - target: {fileID: 247219891, guid: 873706b5634c1c54d9c99d236a19e1de, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1921631331, guid: 873706b5634c1c54d9c99d236a19e1de, type: 3}
-      propertyPath: m_text
-      value: 0db
-      objectReference: {fileID: 0}
-    - target: {fileID: 1921631331, guid: 873706b5634c1c54d9c99d236a19e1de, type: 3}
-      propertyPath: m_HorizontalAlignment
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4240970019943791602, guid: 873706b5634c1c54d9c99d236a19e1de, type: 3}
-      propertyPath: _attValue.Array.size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4240970019943791602, guid: 873706b5634c1c54d9c99d236a19e1de, type: 3}
-      propertyPath: _attValue.Array.data[0]
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4240970019943791602, guid: 873706b5634c1c54d9c99d236a19e1de, type: 3}
-      propertyPath: _attValue.Array.data[1]
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4240970019943791602, guid: 873706b5634c1c54d9c99d236a19e1de, type: 3}
-      propertyPath: _attValue.Array.data[2]
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 4240970019943791602, guid: 873706b5634c1c54d9c99d236a19e1de, type: 3}
-      propertyPath: _attValue.Array.data[3]
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 4240970019943791602, guid: 873706b5634c1c54d9c99d236a19e1de, type: 3}
-      propertyPath: _attValue.Array.data[4]
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 4240970019943791602, guid: 873706b5634c1c54d9c99d236a19e1de, type: 3}
-      propertyPath: _attValue.Array.data[5]
-      value: 50
-      objectReference: {fileID: 0}
     - target: {fileID: 7484540493229894748, guid: 873706b5634c1c54d9c99d236a19e1de, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -3464,10 +3424,6 @@ PrefabInstance:
     - target: {fileID: 7824368014082373350, guid: 873706b5634c1c54d9c99d236a19e1de, type: 3}
       propertyPath: m_Name
       value: NR 900 EMS
-      objectReference: {fileID: 0}
-    - target: {fileID: 7824368014082373350, guid: 873706b5634c1c54d9c99d236a19e1de, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 873706b5634c1c54d9c99d236a19e1de, type: 3}
