@@ -103,6 +103,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "ESC",
+                    "type": "Button",
+                    "id": "a4944569-caae-4be7-b7c9-6a51c9ea67d7",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -226,6 +235,17 @@
                     "action": "MouseClick",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "21e178da-cf61-48c4-b402-6f81ec10b3e3",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ESC",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -318,6 +338,15 @@
                     "name": "MouseClick",
                     "type": "Button",
                     "id": "a1010af9-d775-4e3d-876c-4d9a704c16ee",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ESC",
+                    "type": "Button",
+                    "id": "6ea92644-5bfc-4d6d-8bed-b006d31a41c4",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -432,6 +461,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "PowerDown",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5904843f-755d-4ccd-b9c2-f7eff06aa4f7",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ESC",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

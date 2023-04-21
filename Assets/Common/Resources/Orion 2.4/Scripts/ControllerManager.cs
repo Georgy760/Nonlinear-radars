@@ -2,6 +2,7 @@ using System;
 using Common.Resources.Orion_2._4.Scripts.Buttons;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 namespace Common.Resources.Orion_2._4.Scripts
 {
@@ -21,7 +22,8 @@ namespace Common.Resources.Orion_2._4.Scripts
 
         public event Action OnMouseClick;
         public event Action<Vector2> MousePos;
-        
+        public event Action OnEsc;
+
         private InputActions _inputActions;
 
         private void Awake()
@@ -38,6 +40,7 @@ namespace Common.Resources.Orion_2._4.Scripts
             _inputActions.KeyboardOrion.Input.performed += InputTap;
             _inputActions.KeyboardOrion.Menu.performed += MenuTap;
 
+            _inputActions.KeyboardOrion.ESC.performed += context => SceneManager.LoadScene("Preview");
             _inputActions.KeyboardOrion.MouseClick.performed += MouseClick;
         }
         

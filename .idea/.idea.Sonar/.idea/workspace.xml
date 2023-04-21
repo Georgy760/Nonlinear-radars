@@ -1900,7 +1900,7 @@
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="$PROJECT_DIR$/../../UnityBuilds\NR-900EMS(demo).exe" />
+      <option name="EXE_PATH" value="$PROJECT_DIR$/../../UnityBuilds/Nonlinear-radars\NR-900EMS(demo).exe" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="F:\UnityBuilds" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -1957,7 +1957,7 @@
       <workItem from="1680536924151" duration="4437000" />
       <workItem from="1681919961643" duration="25287000" />
       <workItem from="1681991148934" duration="1760000" />
-      <workItem from="1682044269940" duration="1322000" />
+      <workItem from="1682044269940" duration="4339000" />
     </task>
     <servers />
   </component>

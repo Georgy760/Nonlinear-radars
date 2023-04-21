@@ -125,6 +125,15 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""ESC"",
+                    ""type"": ""Button"",
+                    ""id"": ""a4944569-caae-4be7-b7c9-6a51c9ea67d7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -248,6 +257,17 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""action"": ""MouseClick"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""21e178da-cf61-48c4-b402-6f81ec10b3e3"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ESC"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -340,6 +360,15 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""name"": ""MouseClick"",
                     ""type"": ""Button"",
                     ""id"": ""a1010af9-d775-4e3d-876c-4d9a704c16ee"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ESC"",
+                    ""type"": ""Button"",
+                    ""id"": ""6ea92644-5bfc-4d6d-8bed-b006d31a41c4"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -456,6 +485,17 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""action"": ""PowerDown"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5904843f-755d-4ccd-b9c2-f7eff06aa4f7"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ESC"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -543,6 +583,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         m_KeyboardEMS_RightArrow = m_KeyboardEMS.FindAction("RightArrow", throwIfNotFound: true);
         m_KeyboardEMS_MouseClick = m_KeyboardEMS.FindAction("MouseClick", throwIfNotFound: true);
         m_KeyboardEMS_MousePose = m_KeyboardEMS.FindAction("MousePose", throwIfNotFound: true);
+        m_KeyboardEMS_ESC = m_KeyboardEMS.FindAction("ESC", throwIfNotFound: true);
         // KeyboardOrion
         m_KeyboardOrion = asset.FindActionMap("KeyboardOrion", throwIfNotFound: true);
         m_KeyboardOrion_Power = m_KeyboardOrion.FindAction("Power", throwIfNotFound: true);
@@ -555,6 +596,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         m_KeyboardOrion_Menu = m_KeyboardOrion.FindAction("Menu", throwIfNotFound: true);
         m_KeyboardOrion_MousePose = m_KeyboardOrion.FindAction("MousePose", throwIfNotFound: true);
         m_KeyboardOrion_MouseClick = m_KeyboardOrion.FindAction("MouseClick", throwIfNotFound: true);
+        m_KeyboardOrion_ESC = m_KeyboardOrion.FindAction("ESC", throwIfNotFound: true);
         // Preview
         m_Preview = asset.FindActionMap("Preview", throwIfNotFound: true);
         m_Preview_PrevModel = m_Preview.FindAction("PrevModel", throwIfNotFound: true);
@@ -632,6 +674,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_KeyboardEMS_RightArrow;
     private readonly InputAction m_KeyboardEMS_MouseClick;
     private readonly InputAction m_KeyboardEMS_MousePose;
+    private readonly InputAction m_KeyboardEMS_ESC;
     public struct KeyboardEMSActions
     {
         private @InputActions m_Wrapper;
@@ -647,6 +690,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         public InputAction @RightArrow => m_Wrapper.m_KeyboardEMS_RightArrow;
         public InputAction @MouseClick => m_Wrapper.m_KeyboardEMS_MouseClick;
         public InputAction @MousePose => m_Wrapper.m_KeyboardEMS_MousePose;
+        public InputAction @ESC => m_Wrapper.m_KeyboardEMS_ESC;
         public InputActionMap Get() { return m_Wrapper.m_KeyboardEMS; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -689,6 +733,9 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @MousePose.started += instance.OnMousePose;
             @MousePose.performed += instance.OnMousePose;
             @MousePose.canceled += instance.OnMousePose;
+            @ESC.started += instance.OnESC;
+            @ESC.performed += instance.OnESC;
+            @ESC.canceled += instance.OnESC;
         }
 
         private void UnregisterCallbacks(IKeyboardEMSActions instance)
@@ -726,6 +773,9 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @MousePose.started -= instance.OnMousePose;
             @MousePose.performed -= instance.OnMousePose;
             @MousePose.canceled -= instance.OnMousePose;
+            @ESC.started -= instance.OnESC;
+            @ESC.performed -= instance.OnESC;
+            @ESC.canceled -= instance.OnESC;
         }
 
         public void RemoveCallbacks(IKeyboardEMSActions instance)
@@ -757,6 +807,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_KeyboardOrion_Menu;
     private readonly InputAction m_KeyboardOrion_MousePose;
     private readonly InputAction m_KeyboardOrion_MouseClick;
+    private readonly InputAction m_KeyboardOrion_ESC;
     public struct KeyboardOrionActions
     {
         private @InputActions m_Wrapper;
@@ -771,6 +822,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         public InputAction @Menu => m_Wrapper.m_KeyboardOrion_Menu;
         public InputAction @MousePose => m_Wrapper.m_KeyboardOrion_MousePose;
         public InputAction @MouseClick => m_Wrapper.m_KeyboardOrion_MouseClick;
+        public InputAction @ESC => m_Wrapper.m_KeyboardOrion_ESC;
         public InputActionMap Get() { return m_Wrapper.m_KeyboardOrion; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -810,6 +862,9 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @MouseClick.started += instance.OnMouseClick;
             @MouseClick.performed += instance.OnMouseClick;
             @MouseClick.canceled += instance.OnMouseClick;
+            @ESC.started += instance.OnESC;
+            @ESC.performed += instance.OnESC;
+            @ESC.canceled += instance.OnESC;
         }
 
         private void UnregisterCallbacks(IKeyboardOrionActions instance)
@@ -844,6 +899,9 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @MouseClick.started -= instance.OnMouseClick;
             @MouseClick.performed -= instance.OnMouseClick;
             @MouseClick.canceled -= instance.OnMouseClick;
+            @ESC.started -= instance.OnESC;
+            @ESC.performed -= instance.OnESC;
+            @ESC.canceled -= instance.OnESC;
         }
 
         public void RemoveCallbacks(IKeyboardOrionActions instance)
@@ -936,6 +994,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         void OnRightArrow(InputAction.CallbackContext context);
         void OnMouseClick(InputAction.CallbackContext context);
         void OnMousePose(InputAction.CallbackContext context);
+        void OnESC(InputAction.CallbackContext context);
     }
     public interface IKeyboardOrionActions
     {
@@ -949,6 +1008,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         void OnMenu(InputAction.CallbackContext context);
         void OnMousePose(InputAction.CallbackContext context);
         void OnMouseClick(InputAction.CallbackContext context);
+        void OnESC(InputAction.CallbackContext context);
     }
     public interface IPreviewActions
     {

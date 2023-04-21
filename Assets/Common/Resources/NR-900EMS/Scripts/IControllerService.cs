@@ -25,6 +25,7 @@ namespace Common.Resources.NR_900EMS.Scripts
         public void PlusPreformed(InputAction.CallbackContext obj);
         public void MinusPreformed(InputAction.CallbackContext obj);
         
+        event Action OnEsc;
         public event Action OnMouseClick;
         public event Action<Vector2> MousePos;
     }

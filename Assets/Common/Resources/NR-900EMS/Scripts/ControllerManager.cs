@@ -2,6 +2,7 @@ using System;
 using Common.Resources.NR_900EMS.Scripts.Buttons;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 namespace Common.Resources.NR_900EMS.Scripts
 {
@@ -21,6 +22,7 @@ namespace Common.Resources.NR_900EMS.Scripts
         
         public event Action OnMouseClick;
         public event Action<Vector2> MousePos;
+        public event Action OnEsc;
         
         private InputActions _inputActions;
         
@@ -38,7 +40,8 @@ namespace Common.Resources.NR_900EMS.Scripts
             _inputActions.KeyboardEMS.Power.performed += PowerPreformed;
             _inputActions.KeyboardEMS.twentyK.performed += TwentyK_Preformed;
             _inputActions.KeyboardEMS.ThreeDivTwo.performed += ThreeDivTwoPreformed;
-
+            
+            _inputActions.KeyboardEMS.ESC.performed += context => SceneManager.LoadScene("Preview");
             _inputActions.KeyboardEMS.MouseClick.performed += MouseClick;
 
         }
@@ -102,5 +105,7 @@ namespace Common.Resources.NR_900EMS.Scripts
         {
             OnMinusTap?.Invoke();
         }
+
+        
     }
 }

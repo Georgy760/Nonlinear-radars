@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Common/Scenes/Preview/Preview.unity
+    guid: fc041e0fb49f7cd4ea09b0e5ef61f37b
+  - enabled: 1
     path: Assets/Common/Scenes/EMS.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Common/Scenes/Orion24.unity
+    guid: 094fde9b4cac93f4ca2a238c284f25c5
   m_configObjects: {}

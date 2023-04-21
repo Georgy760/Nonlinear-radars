@@ -390,6 +390,8 @@
 "Assets/Common/Resources/Orion 2.4/Scripts/Orion24.cs"
 "Assets/Common/Scenes/Preview/Infrastructure/BootstrapInstaller.cs"
 "Assets/Common/Scenes/Preview/Scripts/ControllerManager.cs"
+"Assets/Common/Scenes/Preview/Scripts/Device.cs"
+"Assets/Common/Scenes/Preview/Scripts/DeviceType.cs"
 "Assets/Common/Scenes/Preview/Scripts/IControllerService.cs"
 "Assets/Common/Scenes/Preview/SelectionModel.cs"
 "Assets/Common/Scenes/Preview/Turnable.cs"

@@ -76,5 +76,7 @@ namespace Common.Resources.Orion_2._4.Scripts
         ///Позиция мыши
         /// </summary>
         event Action<Vector2> MousePos;
+
+        event Action OnEsc;
     }
 }
