@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using Common.Scenes.Preview;
 using Common.Scenes.Preview.Scripts;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Zenject;
+using DeviceType = Common.Scenes.Preview.Scripts.DeviceType;
 
 public class SelectionModel : MonoBehaviour
 {
@@ -24,7 +27,7 @@ public class SelectionModel : MonoBehaviour
     public GameObject hiddenModel;
     [SerializeField] private bool playOnStart;
     [SerializeField] private int index;
-    private bool modelOnlyOne;
+    private bool modelOnlyOne = false;
     
     public Sequence moveSequence;
     private IControllerService _controllerService;
@@ -37,10 +40,25 @@ public class SelectionModel : MonoBehaviour
         _controllerService.OnNextModel += NextModel;
         _controllerService.OnSelectModel += Select;
     }
+    public void Awake()
+    {
+        if (playOnStart) Initialize(); 
+    }
 
     private void Select()
     {
-        throw new System.NotImplementedException();
+        switch (currentModel.GetComponent<Device>().DeviceType)
+        {
+            case DeviceType.Orion:
+                SceneManager.LoadScene("Orion24");
+                break;
+            case DeviceType.EMS:
+                SceneManager.LoadScene("EMS");
+                break;
+            case DeviceType.Scorpion:
+                
+                break;
+        }
     }
 
     private void TryPreviousModel()
@@ -68,40 +86,22 @@ public class SelectionModel : MonoBehaviour
         }
 }
 
-    public void Awake()
-    {
-        if (playOnStart) Initialise(); 
-    }
     
-    /*
-    public void Update()
+    [ContextMenu("Initialize")]
+    public void Initialize()
     {
-        if (!modelOnlyOne)
+        foreach (Transform child in transform)
         {
-            if (Input.GetAxisRaw("Horizontal") > 0.99)
-            {
-                Debug.Log("NextModel");
-                //LevelLoader.Instance.SelectionAudio.Play();
-                NextModel();
-            }
-            else if (Input.GetAxisRaw("Horizontal") < -0.99)
-            {
-                //LevelLoader.Instance.SelectionAudio.Play();
-                Debug.Log("PreviousModel");
-                PreviousModel();
-            }
+            GameObject.Destroy(child.gameObject);
         }
-        if (Input.GetKeyUp(KeyCode.Space)) //TODO
+        for(int i = 0; i < models.Count; i++)
         {
-            //SelectCurrentModel();
-            //LevelLoader.Instance.SelectedModel = selectedModel;
-        }
-            
-    }
-    */
+            var model = Instantiate(models[i], transform, false) as GameObject;
+            model.transform.position = new Vector3(0f, -50f, 0f);
+            model.GetComponent<Turnable>().enabled = true;
+            models[i] = model;
 
-    public void Initialise()
-    {
+        }
         
         index = 0;
         currentModel = models[index];
@@ -110,13 +110,6 @@ public class SelectionModel : MonoBehaviour
         previousModel = null;
         nextModel = null;
         
-        if (models.Count == 1) 
-            modelOnlyOne = true;
-        else 
-            modelOnlyOne = false;
-        
-        if (models.Count == 2 || models.Count == 3)
-        {
             duplicatedmodels = new List<GameObject>();
             var duplicatedModel = Instantiate(models[0], new Vector3(0f, -50f, 0f),
                 Quaternion.Euler(new Vector3(349.5f,315f,10.5f)));
@@ -128,27 +121,9 @@ public class SelectionModel : MonoBehaviour
             
             duplicatedModel.transform.SetParent(gameObject.transform, false);
             duplicatedmodels.Add(duplicatedModel);
-            if (models.Count == 3)
-            {
-                duplicatedModel = Instantiate(models[2], new Vector3(0f, -50f, 0f),
-                    Quaternion.Euler(new Vector3(349.5f,315f,10.5f)));
-                duplicatedModel.transform.SetParent(gameObject.transform, false);
-                duplicatedmodels.Add(duplicatedModel);
-                
-                nextModel = models[1];
-                previousModel = models[models.Count - 1];
-            }
-            else
-            {
-                nextModel = models[1];
-                previousModel = duplicatedmodels[1];
-            }
-        }
-        else if (models.Count > 2)
-        {
             nextModel = models[1];
-            previousModel = models[models.Count - 1];
-        }
+                previousModel = duplicatedmodels[1];
+        
 
         if (!modelOnlyOne)
         {
@@ -157,12 +132,6 @@ public class SelectionModel : MonoBehaviour
             previousModel.transform.position = firstPos - new Vector3(spacingBetweenModel, 0, 0);
             previousModel.transform.localScale = Vector3.one * unselectedModelSize;
         }
-
-        
-
-        //for (var i = 0; i < models.Count; i++) models[i].GetComponent<Turntable>().Activate();
-        //for (var i = 0; i < duplicatedmodels.Count; i++) duplicatedmodels[i].GetComponent<Turntable>().Activate();
-        //NextModel();
     }
 
     public void UpdateModelList(List<GameObject> model)
@@ -228,9 +197,7 @@ public class SelectionModel : MonoBehaviour
         }
 
         GameObject hiddenModel = null;
-
-        if (models.Count == 2)
-        {
+        
             if (index == 1)
             {
                 hiddenModel = duplicatedmodels[0];
@@ -253,42 +220,7 @@ public class SelectionModel : MonoBehaviour
                 }
                     
             }
-        }
-        else if (models.Count >= 3)
-        {
-            var iteration = 1;
-            if (models.Count == 3) iteration = 1;
-            var tempIndex = index;
-
-            if (!right) //                                                                                                                                   <-----------------------
-                for (var i = 0; i < iteration; i++)
-                {
-                    tempIndex--;
-                    if (tempIndex < 0) tempIndex = models.Count - 1;
-                }
-            else //                                                                                                                                   ----------------------->
-                for (var i = 0; i < iteration; i++)
-                {
-                    tempIndex++;
-                    if (tempIndex >= models.Count) tempIndex = 0;
-                }
-
-            if (models.Count == 3)
-            {
-                hiddenModel = duplicatedmodels[tempIndex];
-                if (hiddenModel == previousModel || hiddenModel == nextModel || hiddenModel == currentModel)
-                {
-                    //  Debug.Log("Switch1");
-                    hiddenModel = models[tempIndex];
-                    Debug.Log(hiddenModel.name);
-                }
-                    
-            }
-            else
-            {
-                hiddenModel = models[tempIndex];
-            }
-        }
+        
 
         hiddenModel.transform.localScale = Vector3.one * unselectedModelSize;
 

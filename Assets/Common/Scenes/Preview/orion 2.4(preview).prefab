@@ -178,6 +178,7 @@ GameObject:
   - component: {fileID: 2129929555179836319}
   - component: {fileID: 4209723176047437653}
   - component: {fileID: 3290553861242878927}
+  - component: {fileID: -1300935421404560311}
   m_Layer: 0
   m_Name: orion 2.4(preview)
   m_TagString: Untagged
@@ -193,8 +194,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2408032292491937408}
   m_LocalRotation: {x: 2.5206501e-12, y: 1, z: -0.0000000218557, w: 0.00011527537}
-  m_LocalPosition: {x: 0, y: -4.87, z: -3.7399998}
-  m_LocalScale: {x: 32, y: 32, z: 32}
+  m_LocalPosition: {x: -5, y: -4.87, z: -3.7399998}
+  m_LocalScale: {x: 16, y: 16, z: 16}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2184662130671454047}
@@ -268,6 +269,19 @@ MonoBehaviour:
   defaultAxis: 1
   rotationSpeed: 10
   alwaysOn: 1
+--- !u!114 &-1300935421404560311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2408032292491937408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40d89ee6b25e485281cdfc6a8546bfdc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DeviceType: 0
 --- !u!1 &2464381968499688550
 GameObject:
   m_ObjectHideFlags: 0
