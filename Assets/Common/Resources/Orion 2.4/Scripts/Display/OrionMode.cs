@@ -8,6 +8,8 @@ namespace Common.Resources.Orion_2._4.Scripts.Display
         MANUAL,
         AUDIO_SELECT,
         MENU,
-        SETTINGS
+        SETTINGS,
+        MAIN,
+        POWEROFF
     }
 }

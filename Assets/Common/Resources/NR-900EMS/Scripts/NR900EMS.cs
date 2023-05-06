@@ -25,6 +25,7 @@ namespace Common.Resources.NR_900EMS.Scripts
             _controllerService.OnPowerTap += Power;
             _controllerService.OnTwentyKTap += TwentyK;
             _controllerService.OnThreeDivTwoTap += ThreeDivTwo;
+            _controllerService.MoveEms += MoveEms;
         }
 
         private void OnDestroy()
@@ -38,8 +39,13 @@ namespace Common.Resources.NR_900EMS.Scripts
             _controllerService.OnPowerTap -= Power;
             _controllerService.OnTwentyKTap -= TwentyK;
             _controllerService.OnThreeDivTwoTap -= ThreeDivTwo;
+            _controllerService.MoveEms -= MoveEms;
         }
-    
+        private void MoveEms(float localRotate)
+        {
+
+            transform.localRotation = Quaternion.Euler(localRotate + -120f, 0f , 180f); ;
+        }
         private void Plus()
         {
             _displayManager.Attenuator.ChangeValueToNext();

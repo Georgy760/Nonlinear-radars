@@ -40,6 +40,12 @@ public class SelectionModel : MonoBehaviour
         _controllerService.OnNextModel += NextModel;
         _controllerService.OnSelectModel += Select;
     }
+    private void OnDestroy()
+    {
+        _controllerService.OnPrevModel -= PreviousModel;
+        _controllerService.OnNextModel -= NextModel;
+        _controllerService.OnSelectModel -= Select;
+    }
     public void Awake()
     {
         if (playOnStart) Initialize(); 

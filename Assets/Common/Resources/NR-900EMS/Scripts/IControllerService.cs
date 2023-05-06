@@ -28,5 +28,9 @@ namespace Common.Resources.NR_900EMS.Scripts
         event Action OnEsc;
         public event Action OnMouseClick;
         public event Action<Vector2> MousePos;
+
+        event Action<float> MoveEms;
+
+        event Action OnHelp;
     }
 }

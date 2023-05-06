@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor.Search;
 using UnityEngine;
 
 namespace Common.Resources.Orion_2._4.Scripts.Display
@@ -10,10 +12,13 @@ namespace Common.Resources.Orion_2._4.Scripts.Display
         [SerializeField] private List<InterfaceButtons> _interfaceButtonsRow2;
         [SerializeField] private int _selectedButton = 0;
         [SerializeField] private int _selectedRow = 0;
+
         public void OnEnable()
         {
             _interfaceButtonsRow1[_selectedButton].Select();
         }
+      
+
 
         public void MoveDown()
         {

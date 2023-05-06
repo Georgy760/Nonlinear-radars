@@ -1,4 +1,7 @@
+
+using Common.Resources.NR_900EMS.Scripts;
 using Common.Resources.Orion_2._4.Scripts.Display;
+using DG.Tweening;
 using UnityEngine;
 using Zenject;
 
@@ -10,7 +13,8 @@ namespace Common.Resources.Orion_2._4.Scripts
 
         [SerializeField] private OrionMode _mode = OrionMode.MENU;
         [SerializeField] private DisplayManager _menuInterface;
-        
+        [SerializeField] private ModeChanger _modeChanger;
+        [SerializeField] private FindObjectd _findObjectd;
         private IControllerService _controllerService;
         [Inject]
         private void Construct(IControllerService controllerService)
@@ -21,11 +25,16 @@ namespace Common.Resources.Orion_2._4.Scripts
             _controllerService.OnVolumeUp += VolumeUp;
             _controllerService.OnPowerDown += PowerDown;
             _controllerService.OnPowerUp += PowerUp;
+            _controllerService.MoveOrion += MoveOrion;
         }
 
         public void Start()
         {
             _menuInterface.gameObject.SetActive(false); //TODO separate menu and display from each other
+        }
+        private void MoveOrion(float localRotate)
+        {
+            transform.localRotation = Quaternion.Euler(-localRotate, 180f, 0.0f); 
         }
 
         private void PowerUp()
@@ -34,6 +43,9 @@ namespace Common.Resources.Orion_2._4.Scripts
             {
                 case OrionMode.MENU:
                     _menuInterface.MoveUp();
+                    break;
+                case OrionMode.MAIN:
+                    _findObjectd.PowerRadiusUp();
                     break;
             }
         }
@@ -45,6 +57,9 @@ namespace Common.Resources.Orion_2._4.Scripts
                 case OrionMode.MENU:
                     _menuInterface.MoveDown();
                     break;
+                case OrionMode.MAIN:
+                    _findObjectd.PowerRadiusDown();
+                    break;
             }
         }
 
@@ -55,6 +70,10 @@ namespace Common.Resources.Orion_2._4.Scripts
                 case OrionMode.MENU:
                     _menuInterface.MoveRight();
                     break;
+                case OrionMode.MAIN:
+                    _findObjectd.VolumeUp();
+                    break;
+                    
             }
         }
 
@@ -65,12 +84,25 @@ namespace Common.Resources.Orion_2._4.Scripts
                 case OrionMode.MENU:
                     _menuInterface.MoveLeft();
                     break;
+                case OrionMode.MAIN:
+                    _findObjectd.VolumeDown();
+                    break;
             }
         }
 
         private void Power()
         {
-            _menuInterface.gameObject.SetActive(!_menuInterface.gameObject.activeSelf);
+            switch (_modeChanger.DisplayMode)
+            {
+                case OrionMode.MAIN:
+                    _modeChanger.SwapModeTo(OrionMode.POWEROFF);
+                    _mode = OrionMode.POWEROFF;
+                    break;
+                case OrionMode.POWEROFF:
+                    _modeChanger.SwapModeTo(OrionMode.MAIN);
+                    _mode = OrionMode.MAIN;
+                    break;
+            }
         }
         
         
