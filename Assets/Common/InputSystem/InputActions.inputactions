@@ -15,6 +15,33 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "DeltaMouse",
+                    "type": "Value",
+                    "id": "6e5262e4-ab10-4388-bf90-cb970e59394c",
+                    "expectedControlType": "Delta",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "V",
+                    "type": "Button",
+                    "id": "52a7b0e9-fc1d-4a3c-9d77-19876084ae40",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "H",
+                    "type": "Button",
+                    "id": "7d7d4659-7865-4d71-9bca-011d293ec8ff",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Power",
                     "type": "Button",
                     "id": "ddedaf0d-9d21-4ea3-af6f-27254803fff9",
@@ -246,6 +273,39 @@
                     "action": "ESC",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f52465aa-f8a5-4806-b7d6-f9954149ecf7",
+                    "path": "<Keyboard>/h",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "H",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "59e74bd7-0675-4db6-b32b-d2dafb1c93b5",
+                    "path": "<Keyboard>/v",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "V",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1f3bc93e-183b-4d84-86bc-155ece3dcf56",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DeltaMouse",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -347,6 +407,33 @@
                     "name": "ESC",
                     "type": "Button",
                     "id": "6ea92644-5bfc-4d6d-8bed-b006d31a41c4",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "DeltaMouse",
+                    "type": "Value",
+                    "id": "af2fda23-9a39-4a21-a09c-8002903601d9",
+                    "expectedControlType": "Delta",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "H",
+                    "type": "Button",
+                    "id": "7d8dacd9-b6a5-4716-9799-e8a521275661",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "V",
+                    "type": "Button",
+                    "id": "7070fd34-e88a-4ab9-8151-47f007e2ad96",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -472,6 +559,39 @@
                     "processors": "",
                     "groups": "",
                     "action": "ESC",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "68b64040-4d26-49d7-95dc-7e3fc1d8b059",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DeltaMouse",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "557c5eec-9832-4620-85cd-489e01b3d523",
+                    "path": "<Keyboard>/h",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "H",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8ec0a3ec-e6b5-4e88-a6fe-a7d69996e030",
+                    "path": "<Keyboard>/v",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "V",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

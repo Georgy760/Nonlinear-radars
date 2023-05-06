@@ -78,5 +78,10 @@ namespace Common.Resources.Orion_2._4.Scripts
         event Action<Vector2> MousePos;
 
         event Action OnEsc;
+
+        event Action<float> MoveOrion;
+
+        event Action OnHelp;
+        
     }
 }

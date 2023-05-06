@@ -1,7 +1,7 @@
 using Common.Resources.NR_900EMS.Scripts.OutPutPower;
 using Unity.VisualScripting;
 using UnityEngine;
-
+using System;
 namespace Common.Resources.NR_900EMS.Scripts.Display
 {
     public class DisplayManager : MonoBehaviour
@@ -23,10 +23,12 @@ namespace Common.Resources.NR_900EMS.Scripts.Display
         [SerializeField] private GameObject Mode_20K;
         [SerializeField] private GameObject Sleep;
 
+        [SerializeField] private FindObjectd find;
         [SerializeField] private int _garmonic = 0;
         [SerializeField] private bool _headphonesStatus = false;
         [SerializeField] private bool _attenuatorStatus = false;
-    
+
+        public static event Action<bool> OnListen;
         private void Start()
         {
             SwapModeTo(EnumMode.POWEROFF);
@@ -46,6 +48,7 @@ namespace Common.Resources.NR_900EMS.Scripts.Display
                     Mode_20K.SetActive(false);
                     Sleep.SetActive(false);
                     _power.GameObject().SetActive(true);
+                    OnListen.Invoke(true);
                     _power.SetPower(Power.PMIN);
                     break;
                 case EnumMode.LISTENING:
@@ -75,6 +78,7 @@ namespace Common.Resources.NR_900EMS.Scripts.Display
                     Listening.SetActive(false);
                     Mode_20K.SetActive(false);
                     Sleep.SetActive(true);
+                    OnListen.Invoke(false);
                     _power.GameObject().SetActive(false);
                     break;
                 case EnumMode.POWEROFF:
@@ -85,6 +89,7 @@ namespace Common.Resources.NR_900EMS.Scripts.Display
                     Mode_20K.SetActive(false);
                     Sleep.SetActive(false);
                     _power.GameObject().SetActive(false);
+                    OnListen.Invoke(false);
                     _garmonic = 0;
                     break;
             }
@@ -96,9 +101,11 @@ namespace Common.Resources.NR_900EMS.Scripts.Display
             {
                 case Power.PMIN:
                     _power.SetPower(Power.PMAX);
+                    find.PowerRadiusUpDown(Power.PMAX);
                     break;
                 case Power.PMAX:
                     _power.SetPower(Power.PMIN);
+                    find.PowerRadiusUpDown(Power.PMIN);
                     break;
             }
         }

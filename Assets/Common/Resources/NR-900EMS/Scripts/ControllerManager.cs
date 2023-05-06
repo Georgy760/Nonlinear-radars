@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Common.Resources.NR_900EMS.Scripts.Buttons;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -23,9 +24,14 @@ namespace Common.Resources.NR_900EMS.Scripts
         public event Action OnMouseClick;
         public event Action<Vector2> MousePos;
         public event Action OnEsc;
-        
+
+        public event Action<float> MoveEms;
+        public event Action OnHelp;
+
         private InputActions _inputActions;
-        
+
+
+        private bool isView = false;
         private void Awake()
         {
             _inputActions = new InputActions();
@@ -44,8 +50,79 @@ namespace Common.Resources.NR_900EMS.Scripts
             _inputActions.KeyboardEMS.ESC.performed += context => SceneManager.LoadScene("Preview");
             _inputActions.KeyboardEMS.MouseClick.performed += MouseClick;
 
+            _inputActions.KeyboardEMS.H.performed += OnHelpView;
+            _inputActions.KeyboardEMS.V.performed += OnCameraMove;
+
         }
 
+        private void OnDestroy()
+        {
+            _inputActions.KeyboardEMS.Minus.performed -= MinusPreformed;
+            _inputActions.KeyboardEMS.Plus.performed -= PlusPreformed;
+            _inputActions.KeyboardEMS.LeftArrow.performed -= LeftArrowPreformed;
+            _inputActions.KeyboardEMS.RightArrow.performed -= RightArrowPreformed;
+            _inputActions.KeyboardEMS.Asterisk.performed -= AsteriskPreformed;
+            _inputActions.KeyboardEMS.PWR.performed -= PwrPreformed;
+            _inputActions.KeyboardEMS.Power.performed -= PowerPreformed;
+            _inputActions.KeyboardEMS.twentyK.performed -= TwentyK_Preformed;
+            _inputActions.KeyboardEMS.ThreeDivTwo.performed -= ThreeDivTwoPreformed;
+
+            _inputActions.KeyboardEMS.ESC.performed -= context => SceneManager.LoadScene("Preview");
+            _inputActions.KeyboardEMS.MouseClick.performed -= MouseClick;
+
+            _inputActions.KeyboardEMS.H.performed -= OnHelpView;
+            _inputActions.KeyboardEMS.V.performed -= OnCameraMove;
+            _inputActions.KeyboardEMS.Disable();
+        }
+
+        public void OnHelpView(InputAction.CallbackContext callbackContext)
+        {
+
+            Debug.Log("HelpTap");
+            OnHelp?.Invoke();
+        } 
+        public void OnCameraMove(InputAction.CallbackContext callbackContext)
+        {
+            float koef;
+            if (!isView)
+            {
+                isView = true;
+                koef = 1f;
+                StartCoroutine(RotateCamera());
+            }
+            else
+            {
+                isView = false;
+                koef = -1f;
+            }
+            Vector3 Newpos = Camera.main.transform.localPosition - new Vector3(0, -2, 4) * koef;
+            Camera.main.transform.localPosition = Newpos;
+        }
+        public float mouseSensitivity = 1f;
+        private IEnumerator RotateCamera()
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            while (true)
+            {
+                var deltaMouse = _inputActions.KeyboardEMS.DeltaMouse.ReadValue<Vector2>();
+                Vector2 deltaRotation = deltaMouse * mouseSensitivity * Time.deltaTime;
+                deltaRotation.y *= -1f;
+                float pitchAngle = Camera.main.transform.localEulerAngles.x;
+                // turns 270 deg into -90, etc
+                if (pitchAngle > 180)
+                    pitchAngle -= 360;
+                pitchAngle = Mathf.Clamp(pitchAngle + deltaRotation.y, -90.0f, 90.0f);
+                Camera.main.transform.localRotation = Quaternion.Euler(pitchAngle, 0.0f, 0.0f);
+                Camera.main.transform.parent.Rotate(Vector3.up * deltaRotation.x);
+                MoveEms.Invoke(pitchAngle);
+                yield return new WaitForEndOfFrame();  // ∆дем следующего кадра
+                if (!isView)
+                {
+                    Cursor.lockState = CursorLockMode.Confined;
+                    break;
+                }
+            }
+        }
         private void MouseClick(InputAction.CallbackContext obj)
         {
             RaycastHit hit;

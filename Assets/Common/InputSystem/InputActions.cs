@@ -37,6 +37,33 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""DeltaMouse"",
+                    ""type"": ""Value"",
+                    ""id"": ""6e5262e4-ab10-4388-bf90-cb970e59394c"",
+                    ""expectedControlType"": ""Delta"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""V"",
+                    ""type"": ""Button"",
+                    ""id"": ""52a7b0e9-fc1d-4a3c-9d77-19876084ae40"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""H"",
+                    ""type"": ""Button"",
+                    ""id"": ""7d7d4659-7865-4d71-9bca-011d293ec8ff"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""Power"",
                     ""type"": ""Button"",
                     ""id"": ""ddedaf0d-9d21-4ea3-af6f-27254803fff9"",
@@ -268,6 +295,39 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""action"": ""ESC"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f52465aa-f8a5-4806-b7d6-f9954149ecf7"",
+                    ""path"": ""<Keyboard>/h"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""H"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""59e74bd7-0675-4db6-b32b-d2dafb1c93b5"",
+                    ""path"": ""<Keyboard>/v"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""V"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1f3bc93e-183b-4d84-86bc-155ece3dcf56"",
+                    ""path"": ""<Mouse>/delta"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DeltaMouse"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -369,6 +429,33 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""name"": ""ESC"",
                     ""type"": ""Button"",
                     ""id"": ""6ea92644-5bfc-4d6d-8bed-b006d31a41c4"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""DeltaMouse"",
+                    ""type"": ""Value"",
+                    ""id"": ""af2fda23-9a39-4a21-a09c-8002903601d9"",
+                    ""expectedControlType"": ""Delta"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""H"",
+                    ""type"": ""Button"",
+                    ""id"": ""7d8dacd9-b6a5-4716-9799-e8a521275661"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""V"",
+                    ""type"": ""Button"",
+                    ""id"": ""7070fd34-e88a-4ab9-8151-47f007e2ad96"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -496,6 +583,39 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""action"": ""ESC"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""68b64040-4d26-49d7-95dc-7e3fc1d8b059"",
+                    ""path"": ""<Mouse>/delta"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DeltaMouse"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""557c5eec-9832-4620-85cd-489e01b3d523"",
+                    ""path"": ""<Keyboard>/h"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""H"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8ec0a3ec-e6b5-4e88-a6fe-a7d69996e030"",
+                    ""path"": ""<Keyboard>/v"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""V"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -573,6 +693,9 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         // KeyboardEMS
         m_KeyboardEMS = asset.FindActionMap("KeyboardEMS", throwIfNotFound: true);
         m_KeyboardEMS_PWR = m_KeyboardEMS.FindAction("PWR", throwIfNotFound: true);
+        m_KeyboardEMS_DeltaMouse = m_KeyboardEMS.FindAction("DeltaMouse", throwIfNotFound: true);
+        m_KeyboardEMS_V = m_KeyboardEMS.FindAction("V", throwIfNotFound: true);
+        m_KeyboardEMS_H = m_KeyboardEMS.FindAction("H", throwIfNotFound: true);
         m_KeyboardEMS_Power = m_KeyboardEMS.FindAction("Power", throwIfNotFound: true);
         m_KeyboardEMS_twentyK = m_KeyboardEMS.FindAction("twentyK", throwIfNotFound: true);
         m_KeyboardEMS_ThreeDivTwo = m_KeyboardEMS.FindAction("ThreeDivTwo", throwIfNotFound: true);
@@ -597,6 +720,9 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         m_KeyboardOrion_MousePose = m_KeyboardOrion.FindAction("MousePose", throwIfNotFound: true);
         m_KeyboardOrion_MouseClick = m_KeyboardOrion.FindAction("MouseClick", throwIfNotFound: true);
         m_KeyboardOrion_ESC = m_KeyboardOrion.FindAction("ESC", throwIfNotFound: true);
+        m_KeyboardOrion_DeltaMouse = m_KeyboardOrion.FindAction("DeltaMouse", throwIfNotFound: true);
+        m_KeyboardOrion_H = m_KeyboardOrion.FindAction("H", throwIfNotFound: true);
+        m_KeyboardOrion_V = m_KeyboardOrion.FindAction("V", throwIfNotFound: true);
         // Preview
         m_Preview = asset.FindActionMap("Preview", throwIfNotFound: true);
         m_Preview_PrevModel = m_Preview.FindAction("PrevModel", throwIfNotFound: true);
@@ -664,6 +790,9 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_KeyboardEMS;
     private List<IKeyboardEMSActions> m_KeyboardEMSActionsCallbackInterfaces = new List<IKeyboardEMSActions>();
     private readonly InputAction m_KeyboardEMS_PWR;
+    private readonly InputAction m_KeyboardEMS_DeltaMouse;
+    private readonly InputAction m_KeyboardEMS_V;
+    private readonly InputAction m_KeyboardEMS_H;
     private readonly InputAction m_KeyboardEMS_Power;
     private readonly InputAction m_KeyboardEMS_twentyK;
     private readonly InputAction m_KeyboardEMS_ThreeDivTwo;
@@ -680,6 +809,9 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         private @InputActions m_Wrapper;
         public KeyboardEMSActions(@InputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @PWR => m_Wrapper.m_KeyboardEMS_PWR;
+        public InputAction @DeltaMouse => m_Wrapper.m_KeyboardEMS_DeltaMouse;
+        public InputAction @V => m_Wrapper.m_KeyboardEMS_V;
+        public InputAction @H => m_Wrapper.m_KeyboardEMS_H;
         public InputAction @Power => m_Wrapper.m_KeyboardEMS_Power;
         public InputAction @twentyK => m_Wrapper.m_KeyboardEMS_twentyK;
         public InputAction @ThreeDivTwo => m_Wrapper.m_KeyboardEMS_ThreeDivTwo;
@@ -703,6 +835,15 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @PWR.started += instance.OnPWR;
             @PWR.performed += instance.OnPWR;
             @PWR.canceled += instance.OnPWR;
+            @DeltaMouse.started += instance.OnDeltaMouse;
+            @DeltaMouse.performed += instance.OnDeltaMouse;
+            @DeltaMouse.canceled += instance.OnDeltaMouse;
+            @V.started += instance.OnV;
+            @V.performed += instance.OnV;
+            @V.canceled += instance.OnV;
+            @H.started += instance.OnH;
+            @H.performed += instance.OnH;
+            @H.canceled += instance.OnH;
             @Power.started += instance.OnPower;
             @Power.performed += instance.OnPower;
             @Power.canceled += instance.OnPower;
@@ -743,6 +884,15 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @PWR.started -= instance.OnPWR;
             @PWR.performed -= instance.OnPWR;
             @PWR.canceled -= instance.OnPWR;
+            @DeltaMouse.started -= instance.OnDeltaMouse;
+            @DeltaMouse.performed -= instance.OnDeltaMouse;
+            @DeltaMouse.canceled -= instance.OnDeltaMouse;
+            @V.started -= instance.OnV;
+            @V.performed -= instance.OnV;
+            @V.canceled -= instance.OnV;
+            @H.started -= instance.OnH;
+            @H.performed -= instance.OnH;
+            @H.canceled -= instance.OnH;
             @Power.started -= instance.OnPower;
             @Power.performed -= instance.OnPower;
             @Power.canceled -= instance.OnPower;
@@ -808,6 +958,9 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_KeyboardOrion_MousePose;
     private readonly InputAction m_KeyboardOrion_MouseClick;
     private readonly InputAction m_KeyboardOrion_ESC;
+    private readonly InputAction m_KeyboardOrion_DeltaMouse;
+    private readonly InputAction m_KeyboardOrion_H;
+    private readonly InputAction m_KeyboardOrion_V;
     public struct KeyboardOrionActions
     {
         private @InputActions m_Wrapper;
@@ -823,6 +976,9 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         public InputAction @MousePose => m_Wrapper.m_KeyboardOrion_MousePose;
         public InputAction @MouseClick => m_Wrapper.m_KeyboardOrion_MouseClick;
         public InputAction @ESC => m_Wrapper.m_KeyboardOrion_ESC;
+        public InputAction @DeltaMouse => m_Wrapper.m_KeyboardOrion_DeltaMouse;
+        public InputAction @H => m_Wrapper.m_KeyboardOrion_H;
+        public InputAction @V => m_Wrapper.m_KeyboardOrion_V;
         public InputActionMap Get() { return m_Wrapper.m_KeyboardOrion; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -865,6 +1021,15 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @ESC.started += instance.OnESC;
             @ESC.performed += instance.OnESC;
             @ESC.canceled += instance.OnESC;
+            @DeltaMouse.started += instance.OnDeltaMouse;
+            @DeltaMouse.performed += instance.OnDeltaMouse;
+            @DeltaMouse.canceled += instance.OnDeltaMouse;
+            @H.started += instance.OnH;
+            @H.performed += instance.OnH;
+            @H.canceled += instance.OnH;
+            @V.started += instance.OnV;
+            @V.performed += instance.OnV;
+            @V.canceled += instance.OnV;
         }
 
         private void UnregisterCallbacks(IKeyboardOrionActions instance)
@@ -902,6 +1067,15 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @ESC.started -= instance.OnESC;
             @ESC.performed -= instance.OnESC;
             @ESC.canceled -= instance.OnESC;
+            @DeltaMouse.started -= instance.OnDeltaMouse;
+            @DeltaMouse.performed -= instance.OnDeltaMouse;
+            @DeltaMouse.canceled -= instance.OnDeltaMouse;
+            @H.started -= instance.OnH;
+            @H.performed -= instance.OnH;
+            @H.canceled -= instance.OnH;
+            @V.started -= instance.OnV;
+            @V.performed -= instance.OnV;
+            @V.canceled -= instance.OnV;
         }
 
         public void RemoveCallbacks(IKeyboardOrionActions instance)
@@ -984,6 +1158,9 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
     public interface IKeyboardEMSActions
     {
         void OnPWR(InputAction.CallbackContext context);
+        void OnDeltaMouse(InputAction.CallbackContext context);
+        void OnV(InputAction.CallbackContext context);
+        void OnH(InputAction.CallbackContext context);
         void OnPower(InputAction.CallbackContext context);
         void OnTwentyK(InputAction.CallbackContext context);
         void OnThreeDivTwo(InputAction.CallbackContext context);
@@ -1009,6 +1186,9 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         void OnMousePose(InputAction.CallbackContext context);
         void OnMouseClick(InputAction.CallbackContext context);
         void OnESC(InputAction.CallbackContext context);
+        void OnDeltaMouse(InputAction.CallbackContext context);
+        void OnH(InputAction.CallbackContext context);
+        void OnV(InputAction.CallbackContext context);
     }
     public interface IPreviewActions
     {
